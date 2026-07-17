@@ -11,7 +11,7 @@ public:
             }
             i--;
         }
-        if(i==0){
+        if(pivot==-1){
                 int left=0,right=nums.size()-1;
                 while(left<right){
                     swap(nums[left],nums[right]);
