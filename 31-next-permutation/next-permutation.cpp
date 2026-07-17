@@ -2,7 +2,7 @@ class Solution {
 public:
     void nextPermutation(vector<int>& nums) {
         int i=nums.size()-1,j=nums.size()-1;
-        int pivot;
+        int pivot=-1;
         if(nums.size()<=1)  return;
         while(i>0){
             if(nums[i]>nums[i-1]){ 
@@ -10,7 +10,8 @@ public:
                 break;
             }
             i--;
-            if(i==0){
+        }
+        if(i==0){
                 int left=0,right=nums.size()-1;
                 while(left<right){
                     swap(nums[left],nums[right]);
@@ -19,7 +20,6 @@ public:
                 }
                 return;
             }
-        }
         while(j>=i){
             if(nums[j]>nums[pivot]){
                 swap(nums[j],nums[pivot]);
