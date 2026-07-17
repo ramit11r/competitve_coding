@@ -12,12 +12,7 @@ public:
             i--;
         }
         if(pivot==-1){
-                int left=0,right=nums.size()-1;
-                while(left<right){
-                    swap(nums[left],nums[right]);
-                    left++;
-                    right--;
-                }
+                reverse(nums.begin() + pivot + 1, nums.end());
                 return;
             }
         while(j>=i){
@@ -27,12 +22,6 @@ public:
             }
             j--;
         }
-        int left=pivot+1;
-        int right=nums.size()-1;
-        while(left<right){
-            swap(nums[left],nums[right]);
-            left++;
-            right--;
-        }
+       reverse(nums.begin() + pivot + 1, nums.end());
     }
 };
