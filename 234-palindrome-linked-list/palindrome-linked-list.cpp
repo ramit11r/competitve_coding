@@ -41,6 +41,7 @@ public:
             c1=c1->next;
             c2=c2->next;
         }
+        slow->next=reverseList(node);
         return true;
     }
 };
