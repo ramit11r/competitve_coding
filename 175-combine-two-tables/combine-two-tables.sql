@@ -6,4 +6,4 @@ select
     Address.state
 from Person 
 left join Address
-on Person.personID = Address.personID
+on Person.personID = Address.personID;
