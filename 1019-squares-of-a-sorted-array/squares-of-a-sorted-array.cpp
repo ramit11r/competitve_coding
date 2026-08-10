@@ -17,7 +17,6 @@ public:
                 j--;
             }
         }
-        sort(ans.begin(),ans.end());
         return ans;
     }
 };
