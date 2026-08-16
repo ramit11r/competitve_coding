@@ -1,47 +1,30 @@
 class Solution {
 public:
     vector<int> decrypt(vector<int>& code, int k) {
-        vector<int> ans(code.size(),0);
-        if(k==0) return ans;
-        int a;
-        if(k>0){
-            for(int i=0;i<code.size();i++){
-                int n=k;
-                a=0;
-                int j=i;
-                while(n>0){
-                    if((j+n)>=code.size()) {
-                        int b=(j+n)-code.size();
-                        a=a+code[b];
-                        n--;
-                    }
-                    else{
-                        a=a+code[j+n];
-                        n--;
-                    }
-                }
-                ans[i]=a;
+        int n = code.size();
+        vector<int> ans(n, 0);
+        if (k == 0)
+            return ans;
+        int windowSum = 0;
+        if (k > 0) {
+            for (int j = 1; j <= k; j++) {
+                windowSum += code[j % n];
+            }
+            for (int i = 0; i < n; i++) {
+                ans[i] = windowSum;
+                windowSum -= code[(i + 1) % n];
+                windowSum += code[(i + k + 1) % n];
             }
         }
-        else{
-            for(int i=0;i<code.size();i++){
-                int n=k;
-                a=0;
-                int c=1;
-                int j=i;
-                while(n<0){
-                    if((j+n)<0) {
-                        int b=code.size()-c;
-                        a=a+code[b];
-                        c++;
-                        n++;
-                    }
-                    else{
-                        a=a+code[j+n];
-                        n++;
-                    }
-                }
-                ans[i]=a;
+        else {
+            k = -k;
+            for (int j = 1; j <= k; j++) {
+                windowSum += code[(n - j) % n];
+            }
+            for (int i = 0; i < n; i++) {
+                ans[i] = windowSum;
+                windowSum -= code[(i - k + n) % n];
+                windowSum += code[i];
             }
         }
         return ans;
