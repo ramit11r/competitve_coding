@@ -9,11 +9,13 @@ public:
         }
         auto it=mp.rbegin();
         int a=it->first;
-        if(it->second > 1)
+        if(it->second > 1){
             return a*a;
-        else
+        }
+        else{
             it++;
             return a*it->first;
+        }
         return 0;
     }
 };
