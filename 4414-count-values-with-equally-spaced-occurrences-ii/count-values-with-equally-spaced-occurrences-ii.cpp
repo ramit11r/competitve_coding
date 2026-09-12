@@ -14,17 +14,17 @@ public:
             int key=p.first;
             vector<int> v=p.second;
             if(v.size()>=3){
-            int distance=v[2]-v[1];
-            for(int i=3;i<v.size();i++){
-                if(v[i]-v[i-1]==distance){
-                    if(i==v.size()-1){
-                        count++;
+                int distance=v[2]-v[1];
+                for(int i=3;i<v.size();i++){
+                    if(v[i]-v[i-1]==distance){
+                        if(i==v.size()-1){
+                            count++;
+                        }
+                    }
+                    else{
+                        break;
                     }
                 }
-                else{
-                    break;
-                }
-            }
             }
         }
         return count;
