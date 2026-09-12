@@ -9,7 +9,7 @@ public:
             int k=low+(high-low)/2;
             tothr=0;
             for(int i=0;i<n;i++){
-                tothr+=ceil((double)piles[i]/k);
+                tothr+=(piles[i]+k-1)/k;
             }
             if(tothr<=h){
                 high=k;
