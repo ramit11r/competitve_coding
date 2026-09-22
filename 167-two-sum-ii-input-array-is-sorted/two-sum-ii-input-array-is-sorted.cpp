@@ -3,11 +3,12 @@ public:
     vector<int> twoSum(vector<int>& numbers, int target) {
         int i=0,j=numbers.size()-1;
         while(i<j){
-            if(numbers[i]+numbers[j]==target) return {i+1,j+1};
-            if(numbers[i]+numbers[j]<target){
+            int sum=numbers[i]+numbers[j];
+            if(sum==target) return {i+1,j+1};
+            if(sum<target){
                 i++;
             }
-            if(numbers[i]+numbers[j]>target){
+            if(sum>target){
                 j--;
             }
         }
